@@ -1,50 +1,56 @@
 package com.rohit.stockexchange.controller;
 
-import java.math.BigDecimal;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rohit.stockexchange.model.Stock;
-import com.rohit.stockexchange.service.StockService;
+import com.rohit.stockexchange.resource.assembler.StockApplication;
+import com.rohit.stockexchange.resources.viewobjects.CreateStockVo;
+import com.rohit.stockexchange.resources.viewobjects.StockVo;
+import com.rohit.stockexchange.resources.viewobjects.UpdateStockVo;
 
+/**
+ * Spring-boot controller to handle CRUD operations on stocks
+ * 
+ * @author Rohit Sharma
+ *
+ */
 @RestController
 @RequestMapping("/api")
 public class StockController {
-	private static Logger log = LoggerFactory.getLogger(StockController.class);
 
 	@Autowired
-	private StockService stockService;
+	private StockApplication stockApplication;
 
-	@GetMapping
-	HttpEntity<?> getStocks() {
-		return new ResponseEntity<List<Stock>>(stockService.getAllStocks(), HttpStatus.OK);
+	@GetMapping("stocks")
+	public ResponseEntity<List<StockVo>> getStocks() {
+		return stockApplication.getStocks();
 	}
 
 	@GetMapping("stocks/{id}")
-	HttpEntity<?> getStock(@PathVariable("id") Long id) {
-		return new ResponseEntity<Stock>(stockService.getStock(id), HttpStatus.OK);
+	public ResponseEntity<StockVo> getStock(@PathVariable("id") Long id) {
+
+		return stockApplication.getStock(id);
 	}
 
 	@PutMapping("stocks/{id}")
-	HttpEntity<?> updateStock(@PathVariable("id") Long id, BigDecimal currentPrice) {
-		return new ResponseEntity<Stock>(stockService.updateStock(id, currentPrice), HttpStatus.OK);
+	public ResponseEntity<StockVo> updateStock(@PathVariable("id") Long id, @RequestBody UpdateStockVo updateStockVo) {
+
+		return stockApplication.updateStock(id, updateStockVo);
 	}
 
-	@PostMapping
-	HttpEntity<?> createStock(final Stock stock) {
-		return new ResponseEntity<Stock>(stockService.createStock(stock), HttpStatus.OK);
+	@PostMapping("stocks")
+	public ResponseEntity<StockVo> createStock(@RequestBody CreateStockVo createStockVo) {
+
+		return stockApplication.createStock(createStockVo);
 	}
 
 }

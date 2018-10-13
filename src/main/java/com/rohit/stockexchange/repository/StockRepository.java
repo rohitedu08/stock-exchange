@@ -1,6 +1,6 @@
 package com.rohit.stockexchange.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.rohit.stockexchange.model.Stock;
@@ -12,10 +12,10 @@ import com.rohit.stockexchange.model.Stock;
  *
  */
 @Repository
-public interface StockRepository extends CrudRepository<Stock, Long> {
+public interface StockRepository extends JpaRepository<Stock, Long> {
 
 	/**
-	 * Get a stock by it's name.
+	 * A case insensitive retrieval of the stock by its name.
 	 * 
 	 * @param name
 	 * @return Stock Object.

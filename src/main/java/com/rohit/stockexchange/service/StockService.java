@@ -1,12 +1,11 @@
 package com.rohit.stockexchange.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.rohit.stockexchange.model.Stock;
 
 /**
- * Interface to perform stock services
+ * Interface to perform stock services.
  * 
  * @author RTSHARMA
  *
@@ -26,16 +25,16 @@ public interface StockService {
 	 * @param id
 	 * @return retrieved stock
 	 */
-	Optional<Stock> getStock(final Long id);
+	Stock getStock(final Long id);
 
 	/**
 	 * Updates the current price of existing stock with the provided one
 	 * 
 	 * @param id
-	 * @param replace
+	 * @param update
 	 * @return Updated Stock
 	 */
-	Optional<Stock> updateStock(final Long id, final Stock update);
+	Stock updateStock(final Long id, final Stock update);
 
 	/**
 	 * Creates a new Stock in the store

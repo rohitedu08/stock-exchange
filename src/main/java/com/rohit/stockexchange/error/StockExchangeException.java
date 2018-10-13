@@ -8,12 +8,6 @@ public class StockExchangeException extends RuntimeException {
 	private final HttpStatus status;
 	private final String code;
 
-	public StockExchangeException(final String code, final String message) {
-		super(message);
-		status = HttpStatus.INTERNAL_SERVER_ERROR;
-		this.code = code;
-	}
-
 	public StockExchangeException(final HttpStatus status, final String code, final String message) {
 		super(message);
 		this.status = status;
