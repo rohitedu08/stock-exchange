@@ -15,6 +15,10 @@ import com.rohit.stockexchange.resources.viewobjects.StockVo;
 import com.rohit.stockexchange.resources.viewobjects.UpdateStockVo;
 import com.rohit.stockexchange.service.StockService;
 
+/**
+ * @author RTSHARMA
+ *
+ */
 @Component
 class StockApplicationImpl implements StockApplication {
 

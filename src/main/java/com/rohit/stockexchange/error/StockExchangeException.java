@@ -21,5 +21,4 @@ public class StockExchangeException extends RuntimeException {
 	public String getCode() {
 		return code;
 	}
-
 }
