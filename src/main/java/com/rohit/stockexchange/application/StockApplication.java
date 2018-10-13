@@ -1,4 +1,4 @@
-package com.rohit.stockexchange.resource.assembler;
+package com.rohit.stockexchange.application;
 
 import java.util.List;
 

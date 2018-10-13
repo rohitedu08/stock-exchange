@@ -38,10 +38,8 @@ public class StockServiceImpl implements StockService {
 		Optional<Stock> stockResult = stockRepository.findById(id);
 
 		if (!stockResult.isPresent()) {
-			if (!stockResult.isPresent()) {
-				throw new StockExchangeException(HttpStatus.NOT_FOUND,
-						StockApplicationErrorCodes.STOCK_NOT_FOUND.getCode(), "Given Stock not found in the store");
-			}
+			throw new StockExchangeException(HttpStatus.NOT_FOUND, StockApplicationErrorCodes.STOCK_NOT_FOUND.getCode(),
+					"Given Stock not found in the store");
 		}
 
 		return stockResult.get();
@@ -54,7 +52,7 @@ public class StockServiceImpl implements StockService {
 					"Stock not found");
 		}
 
-		// Check whether stock contain valid name and Current price
+		// Check whether stock contains valid name and Current price
 
 		if (!stockValidator.isValid(stock)) {
 			throw new StockExchangeException(HttpStatus.UNPROCESSABLE_ENTITY,
@@ -76,7 +74,7 @@ public class StockServiceImpl implements StockService {
 	@Override
 	public Stock createStock(final Stock stock) {
 
-		// Check whether stock contain valid name and Current price
+		// Check whether stock contains valid name and Current price
 		if (!stockValidator.isValid(stock)) {
 			throw new StockExchangeException(HttpStatus.UNPROCESSABLE_ENTITY,
 					StockApplicationErrorCodes.INVALID_STOCK_DATA.getCode(),

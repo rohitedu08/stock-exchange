@@ -35,7 +35,6 @@ public class Stock {
 	private String name;
 	@Columns(columns = { @Column(name = "currency"), @Column(name = "amount") })
 	@Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
-	private Money money;
 	private Money currentPrice;
 
 	@UpdateTimestamp
