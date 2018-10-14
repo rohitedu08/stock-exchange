@@ -12,7 +12,7 @@ import com.rohit.stockexchange.error.StockExchangeException;
  * A simple Joda Money validator which checks if the input string is in valid
  * format or not.
  * 
- * @author RTSHARMA
+ * @author Rohit Sharma
  *
  */
 public class MoneyValidator {

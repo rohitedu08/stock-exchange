@@ -99,6 +99,19 @@ public class StockServiceTest {
 	}
 
 	@Test
+	public void testUpdateAgainstNonExistentStock() {
+		Long id = Long.valueOf(1234);
+		Stock stockUpdates = new Stock("ABN Amro", Money.parse("USD 543"));
+		Optional<Stock> optionalNonExistingStock = Optional.empty();
+		Mockito.when(stockValidator.isValid(Mockito.any(Stock.class))).thenReturn(true);
+		Mockito.when(stockRepository.findById(id)).thenReturn(optionalNonExistingStock);
+		thrown.expect(StockExchangeException.class);
+		thrown.expectMessage("Given Stock not found in the store");
+		stockService.updateStock(id, stockUpdates);
+
+	}
+
+	@Test
 	public void givenNullStockId_whenCallUpdateStock_thenReturnNotFound() {
 		thrown.expect(StockExchangeException.class);
 		thrown.expectMessage("Stock not found");
@@ -108,9 +121,44 @@ public class StockServiceTest {
 
 	@Test
 	public void givenStockWithInvalidData_whenCallUpdateStock_thenReturnDataNotValid() {
+		Long id = Long.valueOf(1234);
 		thrown.expect(StockExchangeException.class);
-		thrown.expectMessage("Stock not found");
-		stockService.updateStock(null, stocks.get(0));
+		thrown.expectMessage("Stock data is not valid, can not be updated");
+		Mockito.when(stockValidator.isValid(Mockito.any(Stock.class))).thenReturn(false);
+		stockService.updateStock(id, stocks.get(0));
+
+	}
+
+	@Test
+	public void testcreateStockHappyFlow() {
+		Stock stockToBeCreated = new Stock("ABN Amro", Money.parse("USD 123"));
+		Mockito.when(stockValidator.isValid(Mockito.any(Stock.class))).thenReturn(true);
+		Mockito.when(stockRepository.findByNameIgnoreCase(stockToBeCreated.getName())).thenReturn(null);
+		Mockito.when(stockRepository.save(Mockito.any(Stock.class))).thenReturn(stockToBeCreated);
+		final Stock createdStock = stockService.createStock(stockToBeCreated);
+
+		Assert.assertEquals("ABN Amro", createdStock.getName());
+		Assert.assertEquals("USD 123.00", createdStock.getCurrentPrice().toString());
+	}
+
+	@Test
+	public void givenAstockWithInvalidData_whenCallCreateStock_thenReturnDataNotValid() {
+		Stock stockToBeCreated = new Stock("ABN Amro", Money.parse("USD 123"));
+		Mockito.when(stockValidator.isValid(Mockito.any(Stock.class))).thenReturn(false);
+		thrown.expect(StockExchangeException.class);
+		thrown.expectMessage("Provided stock contains invalid data, can not be created");
+		stockService.createStock(stockToBeCreated);
+
+	}
+
+	@Test
+	public void givenAstockAlreadyExist_whenCallCreateStock_thenReturnDataNotValid() {
+		Stock stockToBeCreated = new Stock("ABN Amro", Money.parse("USD 123"));
+		Mockito.when(stockValidator.isValid(Mockito.any(Stock.class))).thenReturn(true);
+		Mockito.when(stockRepository.findByNameIgnoreCase(stockToBeCreated.getName())).thenReturn(stockToBeCreated);
+		thrown.expect(StockExchangeException.class);
+		thrown.expectMessage("Stock with the given data is already available");
+		stockService.createStock(stockToBeCreated);
 
 	}
 

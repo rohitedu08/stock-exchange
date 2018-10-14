@@ -19,8 +19,12 @@ import com.rohit.stockexchange.models.Stock;
 @Component
 public class StockValidatorManager {
 
-	@Autowired
 	private List<StockValidator> stockValidators;
+
+	@Autowired
+	public StockValidatorManager(final List<StockValidator> stockValidators) {
+		this.stockValidators = stockValidators;
+	}
 
 	public boolean isValid(Stock stock) {
 		Optional<StockValidator> found = stockValidators.stream().filter(validator -> !validator.isValid(stock))
