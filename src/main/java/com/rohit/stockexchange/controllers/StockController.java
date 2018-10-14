@@ -3,6 +3,7 @@ package com.rohit.stockexchange.controllers;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +53,7 @@ public class StockController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
 			@ApiResponse(code = 500, message = "Internal server error") })
 	@GetMapping(value = "stocks/{id}", produces = "application/json")
-	public ResponseEntity<StockVo> getStock(@PathVariable("id") Long id) {
+	public ResponseEntity<StockVo> getStock(@NotNull @PathVariable("id") Long id) {
 
 		return stockApplication.getStock(id);
 	}
@@ -63,7 +64,7 @@ public class StockController {
 			@ApiResponse(code = 422, message = "Stock data is not valid, can not be updated"),
 			@ApiResponse(code = 500, message = "Internal server error") })
 	@PutMapping(value = "stocks/{id}", produces = "application/json", consumes = "application/json")
-	public ResponseEntity<StockVo> updateStock(@PathVariable("id") Long id,
+	public ResponseEntity<StockVo> updateStock(@NotNull @PathVariable("id") Long id,
 			@Valid @RequestBody UpdateStockVo updateStockVo) {
 
 		return stockApplication.updateStock(id, updateStockVo);
