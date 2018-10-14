@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.rohit.stockexchange.model.Stock;
+import com.rohit.stockexchange.models.Stock;
 
 /**
  * Manager collects all the field validator corresponding to Stock class and

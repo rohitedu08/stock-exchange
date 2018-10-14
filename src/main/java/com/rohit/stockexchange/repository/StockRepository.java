@@ -3,7 +3,7 @@ package com.rohit.stockexchange.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.rohit.stockexchange.model.Stock;
+import com.rohit.stockexchange.models.Stock;
 
 /**
  * Repository to manage operations on stock instances

@@ -9,7 +9,7 @@ import org.springframework.util.Assert;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.rohit.stockexchange.model.Stock;
+import com.rohit.stockexchange.models.Stock;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

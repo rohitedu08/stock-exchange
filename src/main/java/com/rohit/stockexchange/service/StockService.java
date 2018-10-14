@@ -2,7 +2,7 @@ package com.rohit.stockexchange.service;
 
 import java.util.List;
 
-import com.rohit.stockexchange.model.Stock;
+import com.rohit.stockexchange.models.Stock;
 
 /**
  * Interface to perform stock services.

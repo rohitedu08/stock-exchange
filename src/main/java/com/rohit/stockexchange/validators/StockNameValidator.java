@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.rohit.stockexchange.model.Stock;
+import com.rohit.stockexchange.models.Stock;
 
 @Component
 public class StockNameValidator implements StockValidator<Stock> {

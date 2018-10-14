@@ -21,10 +21,10 @@ public class MoneyValidator {
 		Assert.isTrue(!StringUtils.isEmpty(moneyStr), "Please provide a valid current price in formate i.e  'EUR 23'");
 		try {
 			Money.parse(moneyStr);
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			throw new StockExchangeException(HttpStatus.UNPROCESSABLE_ENTITY,
 					StockApplicationErrorCodes.INVALID_STOCK_DATA.getCode(),
-					"Money " + moneyStr + " cannot be parsed, Use valid currency format such as  'USD 543' ");
+					moneyStr + " is invalid format, Use valid currency format such as  'USD 543' ");
 		}
 	}
 }

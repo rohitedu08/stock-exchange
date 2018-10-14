@@ -9,13 +9,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.rohit.stockexchange.model.Stock;
+import com.rohit.stockexchange.models.Stock;
 import com.rohit.stockexchange.resources.viewobjects.CreateStockVo;
 import com.rohit.stockexchange.resources.viewobjects.StockVo;
 import com.rohit.stockexchange.resources.viewobjects.UpdateStockVo;
 import com.rohit.stockexchange.service.StockService;
 
 /**
+ * Implementation of Stock application.
+ * 
  * @author RTSHARMA
  *
  */
