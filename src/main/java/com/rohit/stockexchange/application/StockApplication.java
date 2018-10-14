@@ -9,9 +9,8 @@ import com.rohit.stockexchange.resources.viewobjects.StockVo;
 import com.rohit.stockexchange.resources.viewobjects.UpdateStockVo;
 
 /**
- * This is an abstraction which provides response from the Domain Model and
- * taked care of the Response Entity creation for various stock service
- * Operations
+ * This is an abstraction which provides response from the Domain Model and take
+ * care of the ResponseEntity creation for various stock service Operations
  * 
  * @author Rohit Sharma
  *

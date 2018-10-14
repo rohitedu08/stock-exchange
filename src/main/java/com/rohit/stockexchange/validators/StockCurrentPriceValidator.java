@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.rohit.stockexchange.models.Stock;
 
 @Component
-public class StockCurrentPriceValidator implements StockValidator<Stock> {
+public class StockCurrentPriceValidator implements StockValidator {
 	private static Logger log = LoggerFactory.getLogger(StockCurrentPriceValidator.class);
 
 	@Override

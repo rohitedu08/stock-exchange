@@ -1,7 +1,9 @@
 package com.rohit.stockexchange.validators;
 
-public interface StockValidator<T> {
+import com.rohit.stockexchange.models.Stock;
 
-	public boolean isValid(T t);
+public interface StockValidator {
+
+	public boolean isValid(Stock stock);
 
 }

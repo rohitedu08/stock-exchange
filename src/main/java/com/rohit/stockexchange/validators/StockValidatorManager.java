@@ -20,17 +20,14 @@ import com.rohit.stockexchange.models.Stock;
 public class StockValidatorManager {
 
 	@Autowired
-	private List<StockValidator<Stock>> stockValidators;
+	private List<StockValidator> stockValidators;
 
 	public boolean isValid(Stock stock) {
-		Optional<StockValidator<Stock>> found = stockValidators.stream().filter(validator -> !validator.isValid(stock))
+		Optional<StockValidator> found = stockValidators.stream().filter(validator -> !validator.isValid(stock))
 				.findAny();
 		if (found.isPresent()) {
 			return false;
 		}
-
 		return true;
-
 	}
-
 }

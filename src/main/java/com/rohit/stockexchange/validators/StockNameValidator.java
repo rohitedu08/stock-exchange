@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
 import com.rohit.stockexchange.models.Stock;
 
 @Component
-public class StockNameValidator implements StockValidator<Stock> {
+public class StockNameValidator implements StockValidator {
 	private static Logger log = LoggerFactory.getLogger(StockNameValidator.class);
 
 	@Override

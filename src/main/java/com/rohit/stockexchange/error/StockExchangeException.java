@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 
 public class StockExchangeException extends RuntimeException {
 
-	private static final long serialVersionUID = -7360940660712215283L;
+	private static final long serialVersionUID = 1L;
 	private final HttpStatus status;
 	private final String code;
 

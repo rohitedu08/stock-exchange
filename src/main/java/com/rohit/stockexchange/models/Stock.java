@@ -15,8 +15,6 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.joda.money.Money;
 
-import lombok.EqualsAndHashCode;
-
 /**
  * A Stock entity
  * 
@@ -24,7 +22,6 @@ import lombok.EqualsAndHashCode;
  *
  */
 @Entity
-@EqualsAndHashCode
 public class Stock {
 
 	@Id
@@ -33,6 +30,7 @@ public class Stock {
 
 	@Size(min = 2, max = 30)
 	private String name;
+
 	@Columns(columns = { @Column(name = "currency"), @Column(name = "amount") })
 	@Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
 	private Money currentPrice;
@@ -47,7 +45,6 @@ public class Stock {
 	public Stock(String name, Money currentPrice) {
 		this.name = Objects.requireNonNull(name, "Stock name must be provided");
 		this.currentPrice = Objects.requireNonNull(currentPrice, "Stock current price must be supplied");
-
 	}
 
 	public Long getId() {
