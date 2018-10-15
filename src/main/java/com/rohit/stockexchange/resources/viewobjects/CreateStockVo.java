@@ -6,14 +6,14 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.rohit.stockexchange.validators.MoneyValidator;
+import com.rohit.stockexchange.input.validators.ValidCurrentPrice;
 
 @JsonInclude(Include.NON_NULL)
 public class CreateStockVo {
 
-	@Size(min = 2, max = 30)
+	@Size(min = 2, max = 30, message = "Please enter name between {min} and {max} characters.")
 	private String name;
-
+	@ValidCurrentPrice
 	private String currentPrice;
 
 	public String getName() {
@@ -29,7 +29,6 @@ public class CreateStockVo {
 	}
 
 	public void setCurrentPrice(String currentPrice) {
-		MoneyValidator.validate(currentPrice);
 		this.currentPrice = currentPrice;
 	}
 

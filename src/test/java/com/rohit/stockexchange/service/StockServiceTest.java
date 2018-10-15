@@ -16,10 +16,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.rohit.stockexchange.data.validators.StockValidatorManager;
 import com.rohit.stockexchange.error.StockExchangeException;
 import com.rohit.stockexchange.models.Stock;
 import com.rohit.stockexchange.repository.StockRepository;
-import com.rohit.stockexchange.validators.StockValidatorManager;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StockServiceTest {

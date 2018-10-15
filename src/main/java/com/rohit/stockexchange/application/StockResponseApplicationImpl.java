@@ -16,9 +16,9 @@ import com.rohit.stockexchange.resources.viewobjects.UpdateStockVo;
 import com.rohit.stockexchange.service.StockService;
 
 /**
- * Implementation of Stock application.
+ * Implementation of Stock application. Check interface for more info
  * 
- * @author RTSHARMA
+ * @author Rohit Sharma
  *
  */
 @Component

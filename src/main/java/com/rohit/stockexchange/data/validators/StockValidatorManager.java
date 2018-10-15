@@ -1,4 +1,4 @@
-package com.rohit.stockexchange.validators;
+package com.rohit.stockexchange.data.validators;
 
 import java.util.List;
 import java.util.Optional;

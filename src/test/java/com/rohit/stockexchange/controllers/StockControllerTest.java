@@ -126,7 +126,7 @@ public class StockControllerTest {
 	}
 	
 	
-	@Test(expected= StockExchangeException.class)
+	@Test
 	public void givenStockWithMalformedMoney_whenCallToCreateNewStock_thenReturnError() throws Exception {
 		final CreateStockVo createStockVo= new CreateStockVo();
 		createStockVo.setCurrentPrice("23.56");
@@ -136,7 +136,8 @@ public class StockControllerTest {
 		mockMvc.perform(post("/api/stocks")
 				.contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("utf-8")
-				.content(objectMapper.writeValueAsString(createStockVo)));
+				.content(objectMapper.writeValueAsString(createStockVo)))
+		        .andExpect(status().isBadRequest());;
 	}
 	
 	@Test
@@ -152,7 +153,6 @@ public class StockControllerTest {
 		mockMvc.perform(post("/api/stocks")
 				.contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("utf-8")
-				.content(objectMapper.writeValueAsString(createStockVo)))
-				.andExpect(status().isInternalServerError());
+				.content(objectMapper.writeValueAsString(createStockVo))) .andExpect(status().isBadRequest());
 	}
 }

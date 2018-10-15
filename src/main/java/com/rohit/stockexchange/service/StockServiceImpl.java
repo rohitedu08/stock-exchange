@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import com.rohit.stockexchange.data.validators.StockValidatorManager;
 import com.rohit.stockexchange.error.StockApplicationErrorCodes;
 import com.rohit.stockexchange.error.StockExchangeException;
 import com.rohit.stockexchange.models.Stock;
 import com.rohit.stockexchange.repository.StockRepository;
-import com.rohit.stockexchange.validators.StockValidatorManager;
 
 @Component
 public class StockServiceImpl implements StockService {

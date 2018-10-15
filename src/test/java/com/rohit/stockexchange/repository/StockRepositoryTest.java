@@ -40,10 +40,10 @@ public class StockRepositoryTest {
 		testEntityManager.persistAndFlush(abnStock);
 		testEntityManager.persistAndFlush(ingStock);
 		List<Stock> stockList = stockRepository.findAll();
-		List<Integer> stocks = stockList.stream()
+		List<Integer> abnStockCount = stockList.stream()
 				.filter(stock -> stock.getName().equals("ABN Amro") || stock.getName().equals("ING")).map(i -> 1)
 				.collect(Collectors.toList());
-		Assert.assertEquals(2, stocks.size());
+		Assert.assertEquals(2, abnStockCount.size());
 	}
 
 	@Test

@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.rohit.stockexchange.data.validators.StockCurrentPriceValidator;
 import com.rohit.stockexchange.models.Stock;
 
 @RunWith(MockitoJUnitRunner.class)

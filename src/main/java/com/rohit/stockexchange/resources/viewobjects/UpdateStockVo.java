@@ -4,7 +4,6 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.rohit.stockexchange.validators.MoneyValidator;
 
 @JsonInclude(Include.NON_NULL)
 public class UpdateStockVo {
@@ -17,7 +16,6 @@ public class UpdateStockVo {
 	}
 
 	public void setCurrentPrice(String currentPrice) {
-		MoneyValidator.validate(currentPrice);
 		this.currentPrice = currentPrice;
 	}
 

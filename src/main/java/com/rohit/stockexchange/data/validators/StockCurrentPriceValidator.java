@@ -1,4 +1,4 @@
-package com.rohit.stockexchange.validators;
+package com.rohit.stockexchange.data.validators;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

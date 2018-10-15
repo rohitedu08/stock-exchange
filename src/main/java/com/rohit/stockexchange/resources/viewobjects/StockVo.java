@@ -16,10 +16,8 @@ import com.rohit.stockexchange.models.Stock;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor(force=true)
 @JsonInclude(Include.NON_NULL)
 @EqualsAndHashCode
 public class StockVo {
@@ -34,6 +32,9 @@ public class StockVo {
 	@JsonDeserialize(using=LocalDateTimeDeserializer.class)
 	private LocalDateTime lastUpdate;
 
+	protected StockVo() {
+		
+	}
 	public StockVo(Stock stock) {
 		Assert.notNull(stock, "Stock can not be null");
 		this.id = stock.getId();

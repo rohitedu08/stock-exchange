@@ -10,8 +10,9 @@ public class ExceptionControllerAdvice {
 
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorResponse> exceptionHandler(final Exception ex) {
-		HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
 		ErrorResponse errorResponse = new ErrorResponse();
+		errorResponse.setErrorCode("Validation error");
 		if (ex instanceof StockExchangeException) {
 			httpStatus = ((StockExchangeException) ex).getStatus();
 			errorResponse.setErrorCode(((StockExchangeException) ex).getCode());
