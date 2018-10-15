@@ -60,6 +60,7 @@ public class StockControllerTest {
 
 		final List<StockVo> stockVos = Arrays.asList(stockVo);
 		final ResponseEntity<List<StockVo>> getStocksResponse = new ResponseEntity<>(stockVos, HttpStatus.OK);
+		
 		Mockito.when(stockApplication.getStocks()).thenReturn(getStocksResponse);
 
 		mockMvc.perform(get("/api/stocks")
@@ -89,10 +90,12 @@ public class StockControllerTest {
 	public void givenStock_whenCallToUpdateStock_thenReturnUpdatedStock() throws Exception {
 		final UpdateStockVo updateStockVo= new UpdateStockVo();
 		updateStockVo.setCurrentPrice("USD 23.56");
+		ObjectMapper objectMapper = new ObjectMapper();
 		final ResponseEntity<StockVo> getStockResponse = new ResponseEntity<>(stockVo, HttpStatus.OK);
+		
 		Mockito.when(stockApplication.updateStock( Mockito.any(Long.class),
 		        Mockito.any(UpdateStockVo.class))).thenReturn(getStockResponse);
-		ObjectMapper objectMapper = new ObjectMapper();
+		
 		mockMvc.perform(put("/api/stocks/1234")
 				.contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("utf-8")
@@ -107,9 +110,11 @@ public class StockControllerTest {
 		final CreateStockVo createStockVo= new CreateStockVo();
 		createStockVo.setCurrentPrice("USD 23.56");
 		createStockVo.setName("ABN");
-		final ResponseEntity<StockVo> getStockResponse = new ResponseEntity<>(stockVo, HttpStatus.CREATED);
-		Mockito.when(stockApplication.createStock(Mockito.any(CreateStockVo.class))).thenReturn(getStockResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
+		final ResponseEntity<StockVo> getStockResponse = new ResponseEntity<>(stockVo, HttpStatus.CREATED);
+		
+		Mockito.when(stockApplication.createStock(Mockito.any(CreateStockVo.class))).thenReturn(getStockResponse);
+		
 		mockMvc.perform(post("/api/stocks")
 				.contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("utf-8")
@@ -127,6 +132,7 @@ public class StockControllerTest {
 		createStockVo.setCurrentPrice("23.56");
 		createStockVo.setName("ABN");
 		ObjectMapper objectMapper = new ObjectMapper();
+		
 		mockMvc.perform(post("/api/stocks")
 				.contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("utf-8")
@@ -138,9 +144,11 @@ public class StockControllerTest {
 		final CreateStockVo createStockVo= new CreateStockVo();
 		createStockVo.setCurrentPrice("USD 23.56");
 		createStockVo.setName("");
-		final ResponseEntity<StockVo> getStockResponse = new ResponseEntity<>(stockVo, HttpStatus.CREATED);
-		Mockito.when(stockApplication.createStock(Mockito.any(CreateStockVo.class))).thenReturn(getStockResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
+		final ResponseEntity<StockVo> getStockResponse = new ResponseEntity<>(stockVo, HttpStatus.CREATED);
+		
+		Mockito.when(stockApplication.createStock(Mockito.any(CreateStockVo.class))).thenReturn(getStockResponse);
+		
 		mockMvc.perform(post("/api/stocks")
 				.contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("utf-8")

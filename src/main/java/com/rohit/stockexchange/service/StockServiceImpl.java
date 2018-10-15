@@ -3,8 +3,6 @@ package com.rohit.stockexchange.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.constraints.NotNull;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -30,7 +28,7 @@ public class StockServiceImpl implements StockService {
 	}
 
 	@Override
-	public Stock getStock(@NotNull final Long id) {
+	public Stock getStock(final Long id) {
 		if (null == id) {
 			throw new StockExchangeException(HttpStatus.NOT_FOUND, StockApplicationErrorCodes.STOCK_NOT_FOUND.getCode(),
 					"Stock not found");

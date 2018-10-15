@@ -7,14 +7,19 @@ import javax.validation.constraints.Size;
 
 import org.springframework.util.Assert;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.rohit.stockexchange.deserializer.LocalDateTimeDeserializer;
 import com.rohit.stockexchange.models.Stock;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor(force=true)
 @JsonInclude(Include.NON_NULL)
 @EqualsAndHashCode
 public class StockVo {
@@ -25,7 +30,8 @@ public class StockVo {
 	private String name;
 	@NotNull
 	private String currentPrice;
-
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	@JsonDeserialize(using=LocalDateTimeDeserializer.class)
 	private LocalDateTime lastUpdate;
 
 	public StockVo(Stock stock) {
