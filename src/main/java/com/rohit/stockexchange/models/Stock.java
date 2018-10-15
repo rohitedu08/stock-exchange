@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.joda.money.Money;
@@ -25,7 +26,8 @@ import org.joda.money.Money;
 public class Stock {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name = "native", strategy = "native")
 	private Long id;
 
 	@Size(min = 2, max = 30)
