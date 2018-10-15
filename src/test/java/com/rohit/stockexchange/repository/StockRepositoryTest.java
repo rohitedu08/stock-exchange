@@ -26,7 +26,7 @@ public class StockRepositoryTest {
 	@Test
 	public void whenCallFingById_thenReturnStock() {
 		Money money = Money.parse("USD 123");
-		Stock stock = new Stock("ABN Amro", money);
+		Stock stock = new Stock("GO", money);
 		testEntityManager.persistAndFlush(stock);
 		Stock stockFound = stockRepository.findByNameIgnoreCase(stock.getName());
 		Assert.assertSame(stock, stockFound);
@@ -35,13 +35,13 @@ public class StockRepositoryTest {
 	@Test
 	public void whenCallFindAll_thenReturnAllStocks() {
 		Money money = Money.parse("USD 123");
-		Stock abnStock = new Stock("ABN Amro", money);
-		Stock ingStock = new Stock("ING", money);
+		Stock abnStock = new Stock("Swag", money);
+		Stock ingStock = new Stock("Tea", money);
 		testEntityManager.persistAndFlush(abnStock);
 		testEntityManager.persistAndFlush(ingStock);
 		List<Stock> stockList = stockRepository.findAll();
 		List<Integer> abnStockCount = stockList.stream()
-				.filter(stock -> stock.getName().equals("ABN Amro") || stock.getName().equals("ING")).map(i -> 1)
+				.filter(stock -> stock.getName().equals("Swag") || stock.getName().equals("Tea")).map(i -> 1)
 				.collect(Collectors.toList());
 		Assert.assertEquals(2, abnStockCount.size());
 	}
@@ -49,7 +49,7 @@ public class StockRepositoryTest {
 	@Test
 	public void whenCallSave_thenCreateNewStock() {
 		Money money = Money.parse("USD 123");
-		Stock stock = new Stock("ABN Amro", money);
+		Stock stock = new Stock("Ikea", money);
 		stockRepository.save(stock);
 		Assert.assertSame(stock, stockRepository.findByNameIgnoreCase(stock.getName()));
 
@@ -58,9 +58,9 @@ public class StockRepositoryTest {
 	@Test
 	public void whenCallFindByNameIgnoreCase_thenReturnStockWithThatName() {
 		Money money = Money.parse("USD 123");
-		Stock stock = new Stock("ABN Amro", money);
+		Stock stock = new Stock("Jumbo", money);
 		testEntityManager.persistAndFlush(stock);
-		Stock foundStock = stockRepository.findByNameIgnoreCase("abn amro");
+		Stock foundStock = stockRepository.findByNameIgnoreCase("Jumbo");
 		Assert.assertSame(stock, foundStock);
 
 	}
