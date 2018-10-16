@@ -23,33 +23,36 @@ IntelliJ IDEA
 ```
 ## Getting started ##
 
-Follow the steps to use the application
+Follow the steps to use the application. This will start app at the port 8080.
 
     1. Download and unzip the source repository for this application, or clone it using Git: 
     
 			git clone https://github.com/rohitedu08/stock-exchange.git
 
-	2. Go to the root directory of the cloned project using command prompt/terminal
+    2. Go to the root directory of the cloned project using command prompt/terminal
 
-	3.  Running the project
-	
-		* Run the `main` method from `StockExchangeApplication`
-		* Use the Maven Spring Boot plugin: `mvn spring-boot:run`
-		* Package the application as a JAR by executing mvn clean package and run it using `java -jar stock-exchange.jar`
-```
+    3.  Running the project, choose any of the following
+
+	   * Run the `main` method from `StockExchangeApplication`
+	   * Use the Maven Spring Boot plugin: `mvn spring-boot:run`
+	   * Package the application as a JAR by executing mvn clean package and run it using `java -jar stock-exchange.jar`
 
 ## Access the application UI ##
 
-Once the application is started, it can be accessed on following page. This is a very basic page used only to visualize add and update Stock options.
+Once the application is started, UI can be accessed on following page. This is a very basic page used only to visualize add and update Stock options.
 
 			http://localhost:8080/viewstocks.html
 
 ## Swagger UI ##
 
-After application is started successfully, You will see the list of operations. Clicking on any of them will list the valid HTTP methods (GET, POST, PUT). Expanding each method provides additional useful data, such as response status, content-type, and a list of parameters. 
-	
-	It is also possible to try each method using the UI. visit the following URL
+To see the list of all operations supported by App and for API documentation, go to the following link.
+
 	http://localhost:8080/swagger-ui.html
+
+Click on List operations and you will see the list of all supported operations. The list includes valid HTTP methods (GET, POST, PUT).    Expanding each method provides additional useful data, such as response status, content-type, and a list of parameters. 
+	
+	It is also possible to try each method using the swagger UI.
+	
 	
 ## REST endpoints ##
 
