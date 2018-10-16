@@ -31,7 +31,7 @@ Follow the steps to use the application. This will start app at the port 8080.
 
     2. Go to the root directory of the cloned project using command prompt/terminal
 
-    3.  Running the project
+    3.  Running the project, choose any of the following
 
 	   * Run the `main` method from `StockExchangeApplication`
 	   * Use the Maven Spring Boot plugin: `mvn spring-boot:run`
