@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta charset="ISO-8859-1">
+<title>Stock Exchange</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="js/app.js"></script>
+<style>
+a {
+	cursor: pointer;
+	background-color: lightblue;
+}
+</style>
+</head>
+<body ng-controller="StockCRUDCtrl">
+	<div data-ng-init="onloadFun()">
+		<h3>Add Stock</h3>
+		<div>
+			<table id="addStockTable">
+				<tr>
+					<th>Name</th>
+					<th>Current Price</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td><input type="text" id="name"
+						ng-model="stockToBeAdded.name" /></td>
+					<td><input type="text" id="currentPrice"
+						ng-model="stockToBeAdded.currentPrice" /></td>
+					<td><button type="submit" ng-click="addStock(stockToBeAdded)">Add
+							Stock</button></td>
+				</tr>
+				<br />
+				<tr style="color: red" ng-if="!stockToBeAdded.name">
+					<td align="center" colspan="3">'Name can not be empty'</td>
+				</tr>
+				<tr style="color: red" ng-if="!stockToBeAdded.currentPrice">
+					<td align="center" colspan="3">'Current price can not be
+						empty'</td>
+				</tr>
+
+				<tr style="color: red" ng-if="addStockError">
+					<td align="center" colspan="3">{{addStockError}}</td>
+				</tr>
+				<tr style="color: green" ng-if="addStockSuccess">
+					<td align="center" colspan="3">{{addStockSuccess}}</td>
+				</tr>
+			</table>
+
+			<br /> <br />
+		</div>
+		<h3>Stock List</h3>
+		<div>
+			<div>
+				<table id="updateStockTable">
+					<tr style="color: red" ng-if="updateStockError">
+						<td align="center" colspan="5">{{updateStockError}}</td>
+					</tr>
+					<tr style="color: green" ng-if="updateStockSuccess">
+						<td align="center" colspan="5">{{updateStockSuccess}}</td>
+					</tr>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Current Price</th>
+						<th>Last Updated</th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="stock in stocks">
+						<td><input type="text" id="id" ng-model="stock.id" disabled /></td>
+						<td><input type="text" id="name" ng-model="stock.name" /></td>
+						<td><input type="text" id="currentPrice"
+							ng-model="stock.currentPrice" /></td>
+						<td><input type="text" id="lastUpdate"
+							ng-model="stock.lastUpdate" disabled /></td>
+						<td><button type="submit" ng-click="updateStock(stock)">Update</button></td>
+					</tr>
+					<tr ng-show="message">{{message}}
+					</tr>
+
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

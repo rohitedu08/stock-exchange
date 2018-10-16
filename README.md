@@ -4,7 +4,7 @@
 ## About ##
 
 This is a rest application which deals with various CRUD operations on Stock. 
-This Application is written in Java 8 using Springboot version 2.0.1. This application make use of in memory H2 database. 
+The application uses [Spring Boot](http://projects.spring.io/spring-boot/), so it is easy to run. This application make use of in memory H2 database. 
 On startup, application will load some initial stock entries into the H2 database.
 
 ## What you’ll need ##
@@ -31,14 +31,18 @@ Follow the steps to use the application
 
 	2. Go to the root directory of the cloned project using command prompt/terminal
 
-	3. The application can now be started using following maven command from the Project root directory. 
-
-			mvn spring-boot:run
-The command will start the application and make it available on your local machine on port 8080. if you wish to change the port, please run above command with desired port number as command line argument as shown below.
-
+	3.  Running the project
+	
+		* Run the `main` method from `StockExchangeApplication`
+		* Use the Maven Spring Boot plugin: `mvn spring-boot:run`
+		* Package the application as a JAR by executing mvn clean package and run it using `java -jar stock-exchange.jar`
 ```
-mvn spring-boot:run --server.port=8085
-```
+
+## Access the application UI ##
+
+Once the application is started, it can be accessed on following page. This is a very basic page used only to visualize add and update Stock options.
+
+			http://localhost:8080/viewstocks.html
 
 ## Swagger UI ##
 

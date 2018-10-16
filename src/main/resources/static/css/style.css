@@ -1,0 +1,47 @@
+#updateStockTable {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#updateStockTable td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#addStockTable td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#updateStockTable tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#updateStockTable tr:hover {
+	background-color: #ddd;
+}
+
+#addStockTable tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#addStockTable tr:hover {
+	background-color: #ddd;
+}
+
+#updateStockTable th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
+
+#addStockTable th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
