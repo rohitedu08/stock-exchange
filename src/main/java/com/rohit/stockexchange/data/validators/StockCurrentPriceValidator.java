@@ -6,6 +6,12 @@ import org.springframework.stereotype.Component;
 
 import com.rohit.stockexchange.models.Stock;
 
+/**
+ * Validates whether the currentPrice is not null, if it is then returns false
+ * 
+ * @author Rohit Sharma
+ *
+ */
 @Component
 public class StockCurrentPriceValidator implements StockValidator {
 	private static Logger log = LoggerFactory.getLogger(StockCurrentPriceValidator.class);

@@ -7,6 +7,12 @@ import org.springframework.util.StringUtils;
 
 import com.rohit.stockexchange.models.Stock;
 
+/**
+ * Validates whether the stock name is not empty and null
+ * 
+ * @author Rohit Sharma
+ *
+ */
 @Component
 public class StockNameValidator implements StockValidator {
 	private static Logger log = LoggerFactory.getLogger(StockNameValidator.class);

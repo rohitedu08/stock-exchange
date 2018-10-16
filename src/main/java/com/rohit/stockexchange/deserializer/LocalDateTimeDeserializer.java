@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 /**
- * Lolcal date deserializer. Is used mainly in integration tests to convert from
+ * Local date deserializer. Is used mainly in integration tests to convert from
  * JSON string to Java LocalDateTime
  * 
  * @author Rohit Sharma
