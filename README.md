@@ -11,7 +11,7 @@ On startup, application will load some initial stock entries into the H2 databas
 
 JDK 1.8 or later
 
-Gradle 4+ or Maven 3.2+
+ Maven 3.2+
 
 You can also import the code straight into your IDE: Such as below, or anyone of your choice
 
