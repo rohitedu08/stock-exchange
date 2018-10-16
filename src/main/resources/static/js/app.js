@@ -16,6 +16,14 @@ app.controller('StockCRUDCtrl', [
 							$scope.updateStockSuccess = 'Stock is updated!';
 							$scope.updateStockError = '';
 							$scope.errorCode = '';
+							
+							//Change the page state with the newly returned data
+							for(var i=0; i<$scope.stocks.length; i++){
+								if(response.data.id=== $scope.stocks[i].id){
+									$scope.stocks[i]=response.data;
+								}
+							}
+							
 						}, function error(response) {
 							$scope.updateStockSuccess = '';
 							$scope.errorCode = response.data.errorCode;
