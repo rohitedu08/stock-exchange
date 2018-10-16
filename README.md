@@ -49,9 +49,9 @@ To see the list of all operations supported by App and for API documentation, go
 
 	http://localhost:8080/swagger-ui.html
 
-Click on List operations and you will see the list of all supported operations. The list includes valid HTTP methods (GET, POST, PUT). Expanding each method provides additional useful data, such as response status, content-type, and a list of parameters. 
+Click on List operations and you will see the list of all supported operations. The list includes valid HTTP methods (GET, POST, PUT).    Expanding each method provides additional useful data, such as response status, content-type, and a list of parameters. 
 	
-	It is also possible to try each method using the UI. visit the following URL
+	It is also possible to try each method using the swagger UI.
 	
 	
 ## REST endpoints ##
