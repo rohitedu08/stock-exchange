@@ -9,7 +9,7 @@ On startup, application will load some initial stock entries into the H2 databas
 
 ## What you’ll need ##
 
-JDK 1.8 or later
+JDK 1.8
 
  Maven 3.2+
 
