@@ -45,10 +45,11 @@ Once the application is started, UI can be accessed on following page. This is a
 
 ## Swagger UI ##
 
-You will see the list of all operations and API documentation go to the following link.
+To see the list of all operations supported by App and for API documentation, go to the following link.
+
 	http://localhost:8080/swagger-ui.html
 
-Click on List Operations. and you will see the list of all supported operations. The list includes valid HTTP methods (GET, POST, PUT). Expanding each method provides additional useful data, such as response status, content-type, and a list of parameters. 
+Click on List operations and you will see the list of all supported operations. The list includes valid HTTP methods (GET, POST, PUT). Expanding each method provides additional useful data, such as response status, content-type, and a list of parameters. 
 	
 	It is also possible to try each method using the UI. visit the following URL
 	
