@@ -1,3 +1,8 @@
+a {
+	cursor: pointer;
+	background-color: lightblue;
+}
+
 #updateStockTable {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
@@ -7,11 +12,13 @@
 #updateStockTable td {
 	border: 1px solid #ddd;
 	padding: 8px;
+	text-align: centre;
 }
 
 #addStockTable td {
 	border: 1px solid #ddd;
 	padding: 8px;
+	text-align: centre;
 }
 
 #updateStockTable tr:nth-child(even) {
@@ -33,7 +40,7 @@
 #updateStockTable th {
 	padding-top: 12px;
 	padding-bottom: 12px;
-	text-align: left;
+	text-align: centre;
 	background-color: #4CAF50;
 	color: white;
 }
@@ -41,7 +48,7 @@
 #addStockTable th {
 	padding-top: 12px;
 	padding-bottom: 12px;
-	text-align: left;
+	text-align: centre;
 	background-color: #4CAF50;
 	color: white;
 }
